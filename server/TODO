@@ -1,0 +1,20 @@
+learned through work : 
+
+1.
+
+docker commands
+
+za ulaz u psql 
+
+docker exec -ti taxi-database psql -U taxi
+
+u njoj orijentisano kroz \dt i dalje
+
+brings container up if down :
+docker-compose stop
+docker-compose -f docker-compose.yml up -d
+
+
+Update the container real is:
+
+docker-compose up -d --build
