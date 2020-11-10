@@ -14,7 +14,24 @@ brings container up if down :
 docker-compose stop
 docker-compose -f docker-compose.yml up -d
 
+docker-compose down -v
+
+
+
 
 Update the container real is:
 
 docker-compose up -d --build
+
+docker-compose -f docker-compose.yml up -d --build
+docker-compose -f docker-compose.yml up
+
+docker-compose exec taxi-server python manage.py makemigrations
+docker-compose exec taxi-server python manage.py migrate
+
+tests : 
+
+docker-compose exec taxi-server python manage.py test trips.tests
+
+docker-compose logs -f
+

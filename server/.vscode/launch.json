@@ -6,7 +6,6 @@
   "configurations": [
     {
       "name": "Python: Django",
-      "pythonPath": "D:\\python\\taxi1\\server\\env\\Scripts",
       "type": "python",
       "request": "launch",
       "program": "${workspaceFolder}\\manage.py",
