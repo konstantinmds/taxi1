@@ -1,1 +1,4 @@
 server/env
+server/.env.dev
+server/trips/__pycache__
+server/trips/migrations/__pycache__

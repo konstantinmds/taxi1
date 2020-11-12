@@ -35,3 +35,5 @@ docker-compose exec taxi-server python manage.py test trips.tests
 
 docker-compose logs -f
 
+
+docker-compose restart

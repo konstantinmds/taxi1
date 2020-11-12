@@ -10,11 +10,13 @@ class UserSerializer(serializers.ModelSerializer):
 
 
   def validate(self, data):
+    print("*-----------data", data)
     if data['password1'] != data['password2']:
       raise serializers.ValidationError("Passwords must match")
     return data
 
   def create(self, validated_data):
+    print("validated_data-------------",  validated_data)
     data = {
       key: value for key, value in validated_data.items() if key not in ('password1', 'password2')
     }
@@ -33,7 +35,9 @@ class LogInSerializer(TokenObtainPairSerializer):
   @classmethod
   def get_token(cls, user):
     token = super().get_token(user)
+    print("token------", token)
     user_data = UserSerializer(user).data
+    print("user_data-------------", user_data )
     for key, value in user_data.items():
       if key != 'id':
         token[key] = value
@@ -41,6 +45,7 @@ class LogInSerializer(TokenObtainPairSerializer):
 
 class TripSerializer(serializers.ModelSerializer):
   class Meta:
+    
     model = Trip
     fields = '__all__'
     read_only_fields = ('id', 'created', 'updated')
