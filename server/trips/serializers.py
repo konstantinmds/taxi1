@@ -8,7 +8,6 @@ class UserSerializer(serializers.ModelSerializer):
   password1 = serializers.CharField(write_only= True)
   password2 = serializers.CharField(write_only= True)
 
-
   def validate(self, data):
     print("*-----------data", data)
     if data['password1'] != data['password2']:
@@ -49,3 +48,15 @@ class TripSerializer(serializers.ModelSerializer):
     model = Trip
     fields = '__all__'
     read_only_fields = ('id', 'created', 'updated')
+
+class NestedTripSerializer(serializers.ModelSerializer):
+  #serializes the full Trip object
+  class Meta:
+    
+    model = Trip
+    fields = '__all__'
+    depth = 1
+    
+
+
+
