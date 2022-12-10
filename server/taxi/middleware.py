@@ -26,9 +26,7 @@ def get_user(scope):
   except Exception as exc:
     return AnonymousUser()
 
-  if not user.is_active:
-    return AnonymousUser()
-  return user
+  return user if user.is_active else AnonymousUser()
 
 class TokenAuthMiddleware(AuthMiddleware):
   async def resolve_scope(self, scope):
